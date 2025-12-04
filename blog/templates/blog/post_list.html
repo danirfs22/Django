@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu primeiro blog</title>
-</head>
-<body>
-    <h1>Primeiro post!!</h1>
-    <h3>Postagens</h3>
-    <p>Meu post de blog</p>
-    {% for post in post_list %}
-        Criado em: {{post.create_date}}
-    <h2>{{post.title}}</h2>
-    {{post.text}}
-    <p></p>
-    <hr>
-</body>
-</html>
+{% extends "blog/base.html" %}
+
+{% block content %}
+{% for post in post_list %}
+    <article class="post">       
+        <h2><a href="">{{post.title}}</a></h2>
+            <time> class="date"> Criado em: {{post.create_date}}</time>
+            <h2></h2>
+            <p>{{post.text}}</p>
+            <p></p>
+            <hr>
+    </article>
+    {% endfor %}
+    {% endblock %}
