@@ -3,8 +3,8 @@
 {% block content %}
 {% for post in post_list %}
     <article class="post">       
-            <time> class="date"> Criado em: {{post.create_date}}</time>
-            <h2><a href="{% url 'post_detail' pk =post.pk %}">{{post.title}}</a></h2>
+            <time class="date">Criado em: {{ post.created_date|date:"d/m/Y H:i" }}</time>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h2>
             <p>{{post.text|truncatewords:20}}</p>
             <p></p>
             <hr>
